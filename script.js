@@ -13,6 +13,7 @@ let tasks = [];
 
 let taskForm = document.getElementById("taskForm");
 let taskTable = document.getElementById("taskTable");
+
 console.log("taskForm:", taskForm);
 console.log("taskTable:", taskTable);
 
@@ -28,9 +29,10 @@ function handleSubmission(event) {
         alert('Task name and deadline are required!');
         return; 
     // TODO: Update the tasks array
-    tasks.push({ name: taskName, description: taskDescription, deadline: taskDeadline });
-    
     }
+    tasks.push({ name: taskName, description: taskDescription, deadline: taskDeadline });
+
+
     render();
     }
     // Function to render tasks in the table
@@ -54,3 +56,7 @@ function handleSubmission(event) {
     tasks = []; // Reset the tasks array
     render(); // Call the render function
     }
+    // Event listener for form submission
+    taskForm.addEventListener('submit', handleSubmission);
+// Call the init function to set up the initial state of the app
+init();
